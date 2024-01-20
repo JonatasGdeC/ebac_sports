@@ -17,7 +17,9 @@ const favoritosSlice = createSlice({
     favoritar: (state, action: PayloadAction<Produto>) => {
       const produto = action.payload
       if (state.itensFavoritos.find((p) => p.id === produto.id)) {
-        state.itensFavoritos.filter((p) => p.id !== produto.id)
+        state.itensFavoritos = state.itensFavoritos.filter(
+          (p) => p.id !== produto.id
+        )
       } else {
         state.itensFavoritos.push(produto)
       }
